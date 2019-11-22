@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">K-Map Solver</string>
+    <string name="logo">app logo</string>
+    <string name="zero">0</string>
+    <string name="reset">Reset</string>
+    <string name="solve">Solve</string>
+</resources>
