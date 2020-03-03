@@ -8,31 +8,31 @@ import android.widget.EditText;
 class ResultTypeOptimizer {
     private String optimizedSolution;
 
-    public ResultTypeOptimizer(Context context, final String pos, final EditText textpane) {
+    public ResultTypeOptimizer(Context context, final String sop, final EditText textpane) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
 
         alertDialog.setTitle("Choose result type")
-                .setMessage("PoS or SoP?")
-                .setNegativeButton("PoS", new DialogInterface.OnClickListener() {
+                .setMessage("SoP or PoS?")
+                .setNegativeButton("SoP", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        optimizedSolution = pos;
+                        optimizedSolution = sop;
                         textpane.setText(optimizedSolution);
                         dialog.dismiss();
                     }
                 })
-                .setPositiveButton("SoP", new DialogInterface.OnClickListener() {
+                .setPositiveButton("PoS", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PoStoSoPConverter(pos, textpane);
+                        SoPtoPoSConverter(sop, textpane);
                         dialog.dismiss();
                     }
                 }).show();
         alertDialog.create();
     }
 
-    private void PoStoSoPConverter(String pos, EditText textpane) {
-        String i1 = pos.replace(" + ", ") * (");
+    private void SoPtoPoSConverter(String sop, EditText textpane) {
+        String i1 = sop.replace(" + ", ") * (");
         String i2 = "(" + i1.replace("'", " + ") + ")";
         String i3 = "";
 
